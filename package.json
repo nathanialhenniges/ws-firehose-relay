@@ -20,6 +20,8 @@
   "dependencies": {
     "dotenv": "^8.0.0",
     "eventsource": "^1.0.7",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
     "ws": "^7.1.0"
   }
 }
