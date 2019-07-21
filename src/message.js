@@ -5,7 +5,7 @@ module.exports.message = async function (evt) {
     const { type, data } = JSON.parse(evt);
 
     // Login Logic
-    if (type === "AUTH" && data === "password_here") {
+    if (type === "AUTH" && data === process.env.PASSWORD) {
       this.isAuthed = true;
       console.log(`Client authorized`);
       return this.send(JSON.stringify({ type: "AUTHORIZED" }));
