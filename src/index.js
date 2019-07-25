@@ -18,8 +18,9 @@ const wss = new WebSocket.Server({
 });
 }
 
-const wss = new WebSocket.Server({ port: process.env.PORT })
 const WebSocket = require('ws');
+const wss = new WebSocket.Server({ port: process.env.PORT })
+
 require("./firehose")(wss);
 
 
