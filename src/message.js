@@ -1,7 +1,5 @@
 module.exports.message = async function (evt) {
   try {
-
-
     const { type, data } = JSON.parse(evt);
 
     // Login Logic
