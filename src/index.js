@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+const fs = require('fs');
+
 if(process.env.SSL) {
 const privateKey = fs.readFileSync(process.env.KEY, 'utf8');
 const certificate = fs.readFileSync(process.env.CERT, 'utf8');
