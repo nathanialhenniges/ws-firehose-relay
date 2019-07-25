@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const fs = require('fs');
+const WebSocket = require('ws');
 
 if(process.env.SSL === 'true') {
 const privateKey = fs.readFileSync(process.env.KEY, 'utf8');
@@ -18,7 +19,6 @@ const wss = new WebSocket.Server({
 });
 }
 
-const WebSocket = require('ws');
 const wss = new WebSocket.Server({ port: process.env.PORT })
 
 require("./firehose")(wss);
