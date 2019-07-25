@@ -11,7 +11,7 @@ const https = require('https');
 
 const httpsServer = https.createServer(credentials);
 httpsServer.listen(process.env.PORT);
-}
+
 
 const wss = new WebSocket.Server({
   server: httpsServer
