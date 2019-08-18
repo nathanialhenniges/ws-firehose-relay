@@ -31,5 +31,7 @@ module.exports.message = async function (evt) {
         break;
     }
   } catch {
+    this.send(JSON.stringify({ type: "INVALID" }));
+    console.log(`Client gave invalid  = ${data}`);
   }
 }
