@@ -26,3 +26,5 @@ require("./firehose")(wss);
 
 const { connect } = require("./connection");
 wss.on("connection", connect);
+
+console.log('SERVER STARTED')
