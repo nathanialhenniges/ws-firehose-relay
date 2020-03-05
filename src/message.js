@@ -1,4 +1,4 @@
-module.exports.message = async function (evt) {
+module.exports.message = async function(evt) {
   try {
     const { type, data } = JSON.parse(evt);
 
@@ -6,13 +6,22 @@ module.exports.message = async function (evt) {
     if (type === "AUTH" && data === process.env.PASSWORD) {
       this.isAuthed = true;
       console.log(`Client authorized`);
-      return this.send(JSON.stringify({ type: "AUTHORIZED" }));
+      return this.send(
+        JSON.stringify({
+          type: "AUTHORIZED"
+        })
+      );
     }
     if (!this.isAuthed) {
       console.log(`Client unauthorized`);
-      return this.send(JSON.stringify({ type: "UNAUTHORIZED" }));
+      return this.send(
+        JSON.stringify({
+          type: "UNAUTHORIZED"
+        })
+      );
     }
-    console.log(this.channels)
+
+    console.log(this.channels);
 
     switch (type) {
       case "LISTEN":
@@ -31,5 +40,7 @@ module.exports.message = async function (evt) {
         break;
     }
   } catch {
+    this.send(JSON.stringify({ type: "INVALID" }));
+    console.log(`Client gave invalid  = ${data}`);
   }
-}
+};
